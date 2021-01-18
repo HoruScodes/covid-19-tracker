@@ -19,7 +19,6 @@ class Cases extends React.Component {
     handleCountryChange = async (country) =>{
         const fetchedData = await fetchData(country);
         this.setState({data : fetchedData , country : country})
-        // console.log(this.state)
     }
 
     render() {

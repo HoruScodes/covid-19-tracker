@@ -14,7 +14,7 @@ const Cards = ({data : {confirmed , recovered, deaths , lastUpdate}}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom> Infected </Typography>
                         <Typography variant="h5">  
-                        <CountUp start = {0}end = {confirmed.value}duration = {2.5}separator = ","/>
+                        <CountUp start = {0}end = {confirmed}duration = {2.5}separator = ","/>
                         </Typography>
                         <Typography color="textSecondary" gutterBottom>  {new Date(lastUpdate).toDateString()} </Typography>
                         <Typography variant="body2"> Number of Active Cases of Covid19</Typography>
@@ -24,7 +24,7 @@ const Cards = ({data : {confirmed , recovered, deaths , lastUpdate}}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom> Recovered  </Typography>
                         <Typography variant="h5">
-                        <CountUp start = {0}end = {recovered.value}duration = {2.5} separator = ","/>
+                        <CountUp start = {0}end = {recovered}duration = {2.5} separator = ","/>
                          </Typography>
                         <Typography color="textSecondary" gutterBottom>  {new Date(lastUpdate).toDateString()} </Typography>
                         <Typography variant="body2"> Number of Recoveries from Covid19</Typography>
@@ -34,7 +34,7 @@ const Cards = ({data : {confirmed , recovered, deaths , lastUpdate}}) => {
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom> Deaths  </Typography>
                         <Typography variant="h5">  
-                        <CountUp start = {0} end = {deaths.value} duration = {2.5} separator = ","/>
+                        <CountUp start = {0} end = {deaths} duration = {2.5} separator = ","/>
                         </Typography>
                         <Typography color="textSecondary" gutterBottom>  {new Date(lastUpdate).toDateString()} </Typography>
                         <Typography variant="body2"> Number of Deaths caused by Covid19</Typography>
