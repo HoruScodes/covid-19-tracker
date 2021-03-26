@@ -11,6 +11,7 @@ class Cases extends React.Component {
         country :'',
     }
 
+
     async componentDidMount(){
         const fetchedData = await fetchData();
         this.setState({data : fetchedData})

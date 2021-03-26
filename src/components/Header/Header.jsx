@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 
 const navLinks = [
     { title: `Cases`, path: `/cases` },
-    { title: `Vaccination`, path: `/blog` },
+    { title: `Vaccination`, path: `/vaccination` },
     { title: `contact`, path: `/contact` },
     { title: `faq`, path: `/faq` },
   ]
