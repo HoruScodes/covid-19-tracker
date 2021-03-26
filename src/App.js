@@ -1,5 +1,6 @@
 import React from 'react';
 import Cases from './components/Cases/Cases'
+import Vaccination from './components/Vaccination/Vaccination'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import { Route, Switch } from 'react-router-dom';
@@ -9,10 +10,11 @@ class App extends React.Component {
     render() {
         return(
             <main>
-             <Header />
+            <Header />
             <Switch>
                 <Route path="/" component={Home} exact/>
                 <Route path="/cases" component={Cases}  />
+                <Route path="/vaccination" component={Vaccination}  />
             </Switch>
             <Footer />
             </main>
