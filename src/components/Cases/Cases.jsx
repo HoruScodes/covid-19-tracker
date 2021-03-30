@@ -22,18 +22,17 @@ const Cases = () => {
 
   const { data, country } = casesData;
 
-  console.log(data);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div className={styles.container}>
-      <img className={styles.image} src={image} alt="COVID-19" />
-      <Cards data={data} />
-      <CountryPicker handleCountryChange={handleCountryChange} />
-      <Chart data={data} country={country} />
+    <div>
+      {
+        data && 
+            <div className={styles.container}>
+            <img className={styles.image} src={image} alt="COVID-19" />
+            <Cards data={data} />
+            <CountryPicker handleCountryChange={handleCountryChange} />
+            <Chart data={data} country={country} />
+            </div>
+      }
     </div>
   );
 };

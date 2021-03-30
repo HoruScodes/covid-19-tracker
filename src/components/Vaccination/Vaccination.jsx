@@ -18,7 +18,10 @@ const Vaccination = () =>{
     const {data} = vaccinationInfo
     return (
         <div>
+            {
+            data && 
             <Cards data={data}/>
+            }
         </div>
     )
 }
