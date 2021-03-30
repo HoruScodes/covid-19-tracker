@@ -1,41 +1,41 @@
-import React from 'react';
-import {Cards , Chart, CountryPicker} from '.'
-import styles from '../Cases/Cases.module.css'
+import React, { useEffect, useState } from "react";
+import { Cards, Chart, CountryPicker } from ".";
+import styles from "../Cases/Cases.module.css";
 import { fetchData } from "../../api";
-import image from '../../images/covid-banner.png';
+import image from "../../images/covid-banner.png";
 
-class Cases extends React.Component {
+const Cases = () => {
+  const [casesData, setCasesData] = useState({});
 
-    state = {
-        data : {},
-        country :'',
-    }
+  useEffect(() => {
+    const fetchMyAPI = async () => {
+      const fetchedData = await fetchData();
+      setCasesData({ data: fetchedData });
+    };
+    fetchMyAPI();
+  }, []);
 
+  const handleCountryChange = async (country) => {
+    const fetchedData = await fetchData(country);
+    setCasesData({ data: fetchedData, country: country });
+  };
 
-    async componentDidMount(){
-        const fetchedData = await fetchData();
-        this.setState({data : fetchedData})
-    }
+  const { data, country } = casesData;
 
-    handleCountryChange = async (country) =>{
-        const fetchedData = await fetchData(country);
-        this.setState({data : fetchedData , country : country})
-    }
+  console.log(data);
 
-    render() {
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
-        const { data ,country} = this.state
-
-
-        return(
-            <div className={styles.container}>
-                <img className={styles.image} src={image} alt="COVID-19" />
-                <Cards  data={data}/>
-                <CountryPicker  handleCountryChange={this.handleCountryChange}/>
-                <Chart  data={data} country={country}/>
-            </div>
-        )
-    }
-}
+  return (
+    <div className={styles.container}>
+      <img className={styles.image} src={image} alt="COVID-19" />
+      <Cards data={data} />
+      <CountryPicker handleCountryChange={handleCountryChange} />
+      <Chart data={data} country={country} />
+    </div>
+  );
+};
 
 export default Cases;

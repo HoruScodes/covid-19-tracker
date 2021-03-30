@@ -1,21 +1,21 @@
-import React from 'react';
+import React , {useState , useEffect} from 'react';
 import Cards from './Cards/Cards'
 import { FetchVaccinationData } from "../../api";
 
 
-class Vaccination extends React.Component {
+const Vaccination = () =>{
 
-    state = {
-        data : []
-    }
+    const [vaccinationInfo, setvaccinationInfo] = useState({data : []})
 
-    async componentDidMount(){
-        const fetchedVaccinationData = await FetchVaccinationData();
-        this.setState({data : fetchedVaccinationData})
-    }
+    useEffect( ()=>{
+        const fetchApiData = async () =>{
+            const fetchedVaccinationData = await FetchVaccinationData();
+            setvaccinationInfo({data : fetchedVaccinationData})
+        }
+        fetchApiData();
+    } , [])
 
-render(){
-    const {data} = this.state
+    const {data} = vaccinationInfo
     return (
         <div>
             <Cards data={data}/>
@@ -23,6 +23,5 @@ render(){
     )
 }
 
-}
 
 export default Vaccination;
