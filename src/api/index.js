@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = "https://covid19.mathdro.id/api";
-const url2 = "https://api.covid19tracker.ca";
+// const url2 = "https://api.covid19tracker.ca";
 const url3 =
   "https://api.opencovid.ca/summary?stat=cases&loc=canada&after=01-12-2020";
 const url4 =
