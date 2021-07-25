@@ -1,1 +1,1 @@
-Live : https://distracted-heyrovsky-032665.netlify.app/
+Live : https://covid-19-tracker-7d459ftmv-horuscodes.vercel.app/
