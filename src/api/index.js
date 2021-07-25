@@ -9,14 +9,13 @@ const url4 =
 const url5 =
   "https://api.opencovid.ca/timeseries?stat=dvaccine&loc=canada&ymd=true";
 
-const url6 = "https://api.opencovid.ca/summary?loc=";
+const url6 = "https://api.opencovid.ca/summary?ymd=true&loc=";
 
 export const fetchData = async (country) => {
   let changeableUrl = url;
   const today = new Date();
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
-  let date = yesterday.toISOString().slice(0, 10);
 
   if (country) {
     // https://api.covid19tracker.ca/reports/province/qc
@@ -30,7 +29,6 @@ export const fetchData = async (country) => {
     const { data } = await axios.get(changeableUrl);
     if (country) {
       const temp = data.summary[0];
-      console.log(temp);
       return {
         confirmed: temp.cumulative_cases,
         recovered: temp.cumulative_recovered,
